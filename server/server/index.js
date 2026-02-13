@@ -3,14 +3,14 @@ import cors from "cors";
 
 const app = express();
 
-// Render manome PORT automatique
+// Render PORT
 const PORT = process.env.PORT || 3000;
 
 // Middlewares
 app.use(cors());
 app.use(express.json());
 
-// Route test (homepage)
+// Route test
 app.get("/", (req, res) => {
   res.status(200).json({
     app: "V4ALL",
@@ -19,12 +19,12 @@ app.get("/", (req, res) => {
   });
 });
 
-// Health check (Render aime an’io)
+// Health check
 app.get("/health", (req, res) => {
   res.status(200).send("OK");
 });
 
-// Lancement serveur
+// Start server
 app.listen(PORT, () => {
   console.log(`✅ Server running on port ${PORT}`);
 });
