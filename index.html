@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VICK V4</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #0c0014; /* Fallback */
+        font-family: 'Rajdhani', sans-serif;
+        color: white;
+        overflow: hidden;
+      }
+      .font-orbitron {
+        font-family: 'Orbitron', sans-serif;
+      }
+      
+      /* Global Premium Background */
+      .bg-premium-gradient {
+        background: linear-gradient(135deg, 
+          #F2F2F2 0%, #FFFFFF 35%, 
+          #D10000 35%, #8B0000 70%, 
+          #008A3D 70%, #004F23 100%
+        );
+        background-attachment: fixed;
+      }
+
+      /* Premium Text Glows */
+      .text-glow {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.4), 0 0 20px rgba(255, 255, 255, 0.2);
+      }
+      .text-glow-red {
+        text-shadow: 0 0 10px rgba(209, 0, 0, 0.6), 0 0 20px rgba(139, 0, 0, 0.4);
+      }
+      .text-glow-green {
+        text-shadow: 0 0 10px rgba(0, 138, 61, 0.6), 0 0 20px rgba(0, 79, 35, 0.4);
+      }
+
+      /* Glassmorphism Cards - Darkened for contrast on white band */
+      .glass {
+        background: rgba(0, 0, 0, 0.65);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+      }
+
+      .glass-panel {
+        background: rgba(10, 10, 10, 0.7);
+        backdrop-filter: blur(30px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      /* Premium Buttons */
+      .btn-premium {
+        background: linear-gradient(to right, #D10000, #8B0000);
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 4px 15px rgba(139, 0, 0, 0.4);
+        transition: all 0.3s ease;
+      }
+      .btn-premium:hover {
+        box-shadow: 0 0 20px rgba(0, 138, 61, 0.8); /* Green Glow */
+        border-color: rgba(0, 138, 61, 0.5);
+        transform: translateY(-2px);
+      }
+      .btn-premium::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: 0.5s;
+      }
+      .btn-premium:hover::after {
+        left: 100%;
+      }
+
+      /* Scrollbar */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      /* 3D Perspective Container */
+      .perspective-container {
+        perspective: 1000px;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "framer-motion": "https://esm.sh/framer-motion@^12.34.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.40.0",
+    "@netlify/functions": "https://esm.sh/@netlify/functions@^5.1.2",
+    "busboy": "https://esm.sh/busboy@^1.6.0",
+    "node-fetch": "https://esm.sh/node-fetch@^3.3.2",
+    "cloudinary": "https://esm.sh/cloudinary@^2.9.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

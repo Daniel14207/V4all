@@ -1,0 +1,7 @@
+{
+  "name": "Vick V4 2026 ",
+  "description": "A futuristic neon-cyberpunk casino prediction mobile application with glassmorphism UI and animated 3D components.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
