@@ -6,10 +6,12 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 app.use(cors());
 app.use(express.json());
+
+// Gemini
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 // Upload folder
 if (!fs.existsSync("uploads")) {
@@ -27,10 +29,10 @@ const upload = multer({
 
 // Home
 app.get("/", (req, res) => {
-  res.send("V4ALL AI running 🚀");
+  res.send("V4ALL AI running 🚀 Upload + Analyse ready");
 });
 
-// Upload + Analyse
+// Upload + Analyse image
 app.post("/analyze", upload.single("image"), async (req, res) => {
   try {
     if (!req.file) {
@@ -38,7 +40,9 @@ app.post("/analyze", upload.single("image"), async (req, res) => {
     }
 
     const imageBuffer = fs.readFileSync(req.file.path);
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const model = genAI.getGenerativeModel({
+      model: "gemini-1.5-flash",
+    });
 
     const result = await model.generateContent([
       {
@@ -47,7 +51,7 @@ app.post("/analyze", upload.single("image"), async (req, res) => {
           mimeType: req.file.mimetype,
         },
       },
-      "Analyse cette image et donne une interprétation détaillée.",
+      "Analyse cette image en détail et donne une interprétation claire.",
     ]);
 
     res.json({
