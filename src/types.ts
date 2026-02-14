@@ -1,3 +1,6 @@
+/* =========================
+   SCREENS NAVIGATION
+========================= */
 export enum Screen {
   SPLASH = 'SPLASH',
   LOGIN = 'LOGIN',
@@ -10,9 +13,12 @@ export enum Screen {
   CHAT = 'CHAT',
   SCANNER = 'SCANNER',
   VEO = 'VEO',
-  EDITOR = 'EDITOR'
+  EDITOR = 'EDITOR',
 }
 
+/* =========================
+   UI / ANIMATION
+========================= */
 export interface Sphere {
   id: number;
   x: number;
@@ -23,11 +29,17 @@ export interface Sphere {
   vy: number;
 }
 
+/* =========================
+   AVIATOR
+========================= */
 export interface AviatorSignal {
   cotes: string;
   heure: string;
 }
 
+/* =========================
+   FOOTBALL
+========================= */
 export interface FootballMatch {
   home: string;
   away: string;
