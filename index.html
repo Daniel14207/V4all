@@ -1,125 +1,154 @@
+<style>
+/* ===============================
+   GLOBAL THEME
+=============================== */
+html, body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at top, #0f0f1a, #05050a 70%);
+  color: white;
+  font-family: 'Rajdhani', system-ui, sans-serif;
+  overflow: hidden;
+}
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VICK V4</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        background-color: #0c0014; /* Fallback */
-        font-family: 'Rajdhani', sans-serif;
-        color: white;
-        overflow: hidden;
-      }
-      .font-orbitron {
-        font-family: 'Orbitron', sans-serif;
-      }
-      
-      /* Global Premium Background */
-      .bg-premium-gradient {
-        background: linear-gradient(135deg, 
-          #F2F2F2 0%, #FFFFFF 35%, 
-          #D10000 35%, #8B0000 70%, 
-          #008A3D 70%, #004F23 100%
-        );
-        background-attachment: fixed;
-      }
+/* ===============================
+   PREMIUM BUTTON
+=============================== */
+.btn-premium {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #ff003c, #ff4d6d);
+  box-shadow:
+    0 10px 30px rgba(255,0,80,0.45),
+    inset 0 0 18px rgba(255,255,255,0.18);
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
 
-      /* Premium Text Glows */
-      .text-glow {
-        text-shadow: 0 0 10px rgba(255, 255, 255, 0.4), 0 0 20px rgba(255, 255, 255, 0.2);
-      }
-      .text-glow-red {
-        text-shadow: 0 0 10px rgba(209, 0, 0, 0.6), 0 0 20px rgba(139, 0, 0, 0.4);
-      }
-      .text-glow-green {
-        text-shadow: 0 0 10px rgba(0, 138, 61, 0.6), 0 0 20px rgba(0, 79, 35, 0.4);
-      }
+.btn-premium:hover {
+  transform: translateY(-2px) scale(1.02);
+}
 
-      /* Glassmorphism Cards - Darkened for contrast on white band */
-      .glass {
-        background: rgba(0, 0, 0, 0.65);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
-      }
+.btn-premium::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.25),
+    transparent
+  );
+  transition: 0.6s;
+}
 
-      .glass-panel {
-        background: rgba(10, 10, 10, 0.7);
-        backdrop-filter: blur(30px);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-      }
+.btn-premium:hover::after {
+  left: 100%;
+}
 
-      /* Premium Buttons */
-      .btn-premium {
-        background: linear-gradient(to right, #D10000, #8B0000);
-        position: relative;
-        overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        box-shadow: 0 4px 15px rgba(139, 0, 0, 0.4);
-        transition: all 0.3s ease;
-      }
-      .btn-premium:hover {
-        box-shadow: 0 0 20px rgba(0, 138, 61, 0.8); /* Green Glow */
-        border-color: rgba(0, 138, 61, 0.5);
-        transform: translateY(-2px);
-      }
-      .btn-premium::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-        transition: 0.5s;
-      }
-      .btn-premium:hover::after {
-        left: 100%;
-      }
+/* ===============================
+   GLASSMORPHISM CARD
+=============================== */
+.glass {
+  background: linear-gradient(
+    145deg,
+    rgba(255,255,255,0.08),
+    rgba(255,255,255,0.02)
+  );
+  backdrop-filter: blur(18px);
+  border-radius: 32px;
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow:
+    0 30px 60px rgba(0,0,0,0.7),
+    inset 0 0 25px rgba(255,255,255,0.05);
+}
 
-      /* Scrollbar */
-      .no-scrollbar::-webkit-scrollbar {
-        display: none;
-      }
-      .no-scrollbar {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
+/* ===============================
+   3D TEXT
+=============================== */
+.text-3d {
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 0.35em;
+  text-shadow:
+    0 1px 0 #aaa,
+    0 2px 0 #888,
+    0 3px 0 #666,
+    0 6px 12px rgba(0,0,0,0.7),
+    0 0 20px rgba(255,0,80,0.6);
+}
 
-      /* 3D Perspective Container */
-      .perspective-container {
-        perspective: 1000px;
-      }
-    </style>
-  <script type="importmap">
+/* ===============================
+   FLOATING 3D EFFECT
+=============================== */
+.float-3d {
+  animation: float3d 6s ease-in-out infinite;
+}
+
+@keyframes float3d {
+  0%   { transform: translateY(0) rotateX(0deg); }
+  50%  { transform: translateY(-14px) rotateX(6deg); }
+  100% { transform: translateY(0) rotateX(0deg); }
+}
+
+/* ===============================
+   GLOW PULSE
+=============================== */
+.glow {
+  animation: glowPulse 3s infinite ease-in-out;
+}
+
+@keyframes glowPulse {
+  0%,100% { box-shadow: 0 0 20px rgba(255,0,80,0.3); }
+  50%     { box-shadow: 0 0 45px rgba(255,0,120,0.8); }
+}
+
+/* ===============================
+   SCROLLBAR HIDDEN
+=============================== */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ===============================
+   3D PERSPECTIVE
+=============================== */
+.perspective-container {
+  perspective: 1000px;
+}
+</style>
+
+<script type="importmap">
 {
   "imports": {
-    "react/": "https://esm.sh/react@^19.2.4/",
-    "react": "https://esm.sh/react@^19.2.4",
-    "framer-motion": "https://esm.sh/framer-motion@^12.34.0",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
-    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
-    "@google/genai": "https://esm.sh/@google/genai@^1.40.0",
-    "@netlify/functions": "https://esm.sh/@netlify/functions@^5.1.2",
-    "busboy": "https://esm.sh/busboy@^1.6.0",
-    "node-fetch": "https://esm.sh/node-fetch@^3.3.2",
-    "cloudinary": "https://esm.sh/cloudinary@^2.9.0"
+    "react": "https://esm.sh/react@19",
+    "react-dom": "https://esm.sh/react-dom@19",
+    "framer-motion": "https://esm.sh/framer-motion@12",
+    "lucide-react": "https://esm.sh/lucide-react@0.563.0"
   }
 }
 </script>
+
 <link rel="stylesheet" href="/index.css">
 </head>
-  <body>
-    <div id="root"></div>
+
+<body>
+  <!-- BACKGROUND 3D DECOR -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <img class="float-3d" src="https://cdn.dribbble.com/users/1998175/screenshots/15436892/media/38b774f4c843f60a6e2f25ad8d2b3e0d.png"
+      style="position:absolute;top:12%;left:5%;width:180px;opacity:0.18">
+    <img class="float-3d" src="https://cdn.dribbble.com/users/4189231/screenshots/16702818/media/1f92e6f02e95c676d84f8b6b93e1a8a8.png"
+      style="position:absolute;bottom:10%;right:6%;width:220px;opacity:0.18">
+  </div>
+
+  <div id="root"></div>
+
   <script type="module" src="/src/index.tsx"></script>
 </body>
 </html>
